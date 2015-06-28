@@ -140,7 +140,7 @@ namespace _3_22_12Tree
                     for (int i = 4; i < levels; i++)
                     {
                         SetNeighbors(temp.LeftChild, level + 1);
-                        SetNeighbors(temp.RightChild, level + 1);
+
                     }
                     
                 }
