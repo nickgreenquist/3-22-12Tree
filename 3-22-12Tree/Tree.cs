@@ -90,26 +90,38 @@ namespace _3_22_12Tree
 
         public void SetNeighbors(Node temp, int level)
         {
-                if (temp.RightNeighbor == null && temp.Parent != null && temp.Parent.RightNeighbor != null)
+            //user has no neighbor in that direction, but the parent does, so there must be a neighbor somewhere
+            if (temp.LeftNeighbor == null && temp.Parent != null && temp.Parent.LeftNeighbor != null)
+            {
+                Node tempNeighbor = temp.Parent;
+                if (tempNeighbor.LeftNeighbor != null)
                 {
-                    Node tempNeighbor = rootNode.RightChild;
-                    for (int j = 0; j < level - 3; j++)
-                    {
-                        tempNeighbor = tempNeighbor.LeftChild;
-                    }
-                    temp.RightNeighbor = tempNeighbor;
-                }
-                if (temp.LeftNeighbor == null && temp.Parent != null && temp.Parent.LeftNeighbor != null)
-                {
-                    Node tempNeighbor = rootNode.LeftChild;
-                    for (int j = 0; j < level - 3; j++)
-                    {
-                        tempNeighbor = tempNeighbor.RightChild;
-                    }
+                    tempNeighbor = tempNeighbor.LeftNeighbor.RightChild;
                     temp.LeftNeighbor = tempNeighbor;
                 }
 
+            }
+            if (temp.RightNeighbor == null && temp.Parent != null && temp.Parent.RightNeighbor != null)
+            {
+                Node tempNeighbor = temp.Parent;
+                if(tempNeighbor.RightNeighbor != null)
+                {
+                    tempNeighbor = tempNeighbor.RightNeighbor.LeftChild;
+                    temp.RightNeighbor = tempNeighbor;
+                }
+                
+            }
+            
+            
                 //set data
+            if (temp.RightNeighbor != null)
+            {
+                temp.RightChild.Data = temp.Data + temp.RightNeighbor.Data;
+            }
+            else
+            {
+                temp.RightChild.Data = temp.Data;
+            }
                 if (temp.LeftNeighbor != null)
                 {
                     temp.LeftChild.Data = temp.Data + temp.LeftNeighbor.Data;
@@ -118,19 +130,19 @@ namespace _3_22_12Tree
                 {
                     temp.LeftChild.Data = temp.Data;
                 }
-                if (temp.RightNeighbor != null)
-                {
-                    temp.RightChild.Data = temp.Data + temp.RightNeighbor.Data;
-                }
-                else
-                {
-                    temp.RightChild.Data = temp.Data;
-                }
+                
 
                 if (level < levels)
                 {
-                    SetNeighbors(temp.RightChild, level + 1);
                     SetNeighbors(temp.LeftChild, level + 1);
+                    SetNeighbors(temp.RightChild, level + 1);
+                    //have to do the steps again for every extra level because the neighbors don't get updated in unison
+                    for (int i = 4; i < levels; i++)
+                    {
+                        SetNeighbors(temp.LeftChild, level + 1);
+                        SetNeighbors(temp.RightChild, level + 1);
+                    }
+                    
                 }
         }
 
