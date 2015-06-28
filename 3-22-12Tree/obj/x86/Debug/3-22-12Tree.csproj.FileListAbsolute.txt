@@ -10,3 +10,6 @@ D:\College\Programming\Visual Studio 2010\Projects\C#\3-22-12Tree\3-22-12Tree\bi
 D:\College\Programming\Visual Studio 2010\Projects\C#\3-22-12Tree\3-22-12Tree\obj\x86\Debug\3-22-12Tree.csprojResolveAssemblyReference.cache
 C:\Users\Nick\3-22-12Tree\3-22-12Tree\obj\x86\Debug\3-22-12Tree.exe
 C:\Users\Nick\3-22-12Tree\3-22-12Tree\obj\x86\Debug\3-22-12Tree.pdb
+C:\Users\Nick\3-22-12Tree\3-22-12Tree\obj\x86\Debug\3-22-12Tree.csprojResolveAssemblyReference.cache
+C:\Users\Nick\3-22-12Tree\3-22-12Tree\bin\Debug\3-22-12Tree.exe
+C:\Users\Nick\3-22-12Tree\3-22-12Tree\bin\Debug\3-22-12Tree.pdb
