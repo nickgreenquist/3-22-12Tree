@@ -15,6 +15,9 @@ namespace _3_22_12Tree
 
             tree.CreateTree();
             tree.RootNode.Print("");
+
+            Console.Write("\n\nPress enter to end the program");
+            Console.ReadLine();
         }
     }
 }
